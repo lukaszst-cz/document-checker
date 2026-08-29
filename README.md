@@ -4,6 +4,8 @@ Demonstracja kontroli dokumentów i danych przed wysłaniem do klienta.
 
 ![Widok demonstracji kontroli pliku Excel](assets/demo-xlsx.png)
 
+**Demo online:** https://document-checker-zm.pages.dev/
+
 ## Zakres
 
 - CSV, XLS/XLSX oraz PDF z zaznaczalnym tekstem;
