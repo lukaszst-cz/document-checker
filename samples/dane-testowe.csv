@@ -1,0 +1,4 @@
+name,quantity,net,gross,vat,nip,date,email
+Montaż mebli,1,1000,1230,23,5250000000,2026-09-12,biuro@firma.pl
+Transport palet,2,450,1107,23,123456789,12/09/2026,logistyka@firma.pl
+montaż  mebli,1,1000,1230,23,5250000000,2026-09-12,biuro@firma.pl
