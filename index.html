@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Demo kontroli danych w CSV, Excelu i PDF przed wysłaniem dokumentu." />
-    <title>Document Checker — demo</title>
+    <title>Document Checker, demo</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main>
       <header><a class="brand" href="#top">ZIELONA MARKA <span>/ DEMO</span></a><p>Kontrola dokumentów i danych</p></header>
-      <section class="hero" id="top"><p class="eyebrow">CSV · EXCEL · PDF</p><h1>Sprawdź dane, zanim dokument trafi do klienta.</h1><p class="lead">Aplikacja porządkuje pozycje, wykrywa braki, niespójne kwoty i prawdopodobne duplikaty. To kontrola operacyjna — nie system księgowy ani prawny.</p><p class="notice">Plik jest analizowany lokalnie w przeglądarce. Nie jest wysyłany na serwer.</p></section>
+      <section class="hero" id="top"><p class="eyebrow">CSV · EXCEL · PDF</p><h1>Sprawdź dane, zanim dokument trafi do klienta.</h1><p class="lead">Aplikacja porządkuje pozycje, wykrywa braki, niespójne kwoty i prawdopodobne duplikaty. To kontrola operacyjna, nie system księgowy ani prawny.</p><p class="notice">Plik jest analizowany lokalnie w przeglądarce. Nie jest wysyłany na serwer.</p></section>
       <section class="workbench"><div class="card"><h2>Wczytaj dane</h2><div class="file-row"><label class="file" for="file">Wybierz CSV, XLSX lub PDF<input id="file" type="file" accept=".csv,.xlsx,.xls,.pdf" /></label><button id="sample">Użyj danych testowych</button></div><p class="hint">PDF musi zawierać zaznaczalny tekst. Excel i PDF używają bibliotek pobieranych tylko w chwili analizy.</p><label for="raw">Lub wklej CSV</label><textarea id="raw" rows="9" placeholder="nazwa,ilość,netto,brutto,vat,nip..."></textarea><p id="error" role="alert"></p><button id="check" class="primary">Sprawdź dane</button></div><aside class="card summary"><p class="eyebrow">ZAKRES KONTROLI</p><ul><li>wymagane pola</li><li>format i zgodność kwot</li><li>NIP, data i e-mail</li><li>duplikaty oraz normalizacja nazw</li></ul></aside></section>
       <section id="result" hidden aria-live="polite"></section>
       <footer><p>Demonstracja do kontroli operacyjnej. Wynik wymaga weryfikacji przez osobę odpowiedzialną przed wysłaniem dokumentu.</p></footer>
