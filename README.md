@@ -1,39 +1,36 @@
 # Document Checker
 
-Demonstracja kontroli dokumentów i danych przed wysłaniem do klienta.
+**Problem:** przed wysłaniem oferty, zamówienia lub zestawienia łatwo pominąć NIP, datę, e-mail, pozycję albo rozbieżność kwot. Taki błąd kosztuje czas i obniża zaufanie klienta.
 
-![Widok demonstracji kontroli pliku Excel](assets/demo-xlsx.png)
+**Rozwiązanie:** narzędzie do wstępnej kontroli danych z CSV, Excel i PDF przed wysłaniem.
 
-**Demo online:** https://document-checker-zm.pages.dev/
+[Otwórz działające demo](https://document-checker-zm.pages.dev/)
 
-**Kod:** https://github.com/lukaszst-cz/document-checker
+## Co sprawdza
 
-## Zakres
-
-- CSV, XLS/XLSX oraz PDF z zaznaczalnym tekstem;
-- rozpoznanie podstawowych pól pozycji dokumentu;
-- normalizacja nazw i wartości;
-- kontrola wymaganych pól, kwot netto/brutto/VAT, NIP-u, daty, e-maila oraz prawdopodobnych duplikatów;
+- wymagane pola i podstawowe dane pozycji;
+- normalizację nazw oraz wartości;
+- rozbieżności netto, brutto i VAT;
+- NIP, datę, e-mail i prawdopodobne duplikaty;
 - eksport znormalizowanego CSV.
+
+## Wartość biznesowa
+
+- mniej błędów wychodzących do klienta;
+- krótsza kontrola przed wysłaniem dokumentu;
+- powtarzalny standard danych dla biura, handlu, warsztatu, druku i usług;
+- punkt wyjścia do przyszłej automatyzacji obiegu dokumentów.
 
 ## Ważne ograniczenie
 
-To narzędzie jest wsparciem kontroli operacyjnej. Nie zastępuje systemu księgowego, kontroli prawnej ani integracji KSeF. Każdy raport wymaga weryfikacji przez osobę odpowiedzialną.
+To narzędzie do kontroli operacyjnej. Nie zastępuje systemu księgowego, porady prawnej ani integracji KSeF. Każdy raport wymaga weryfikacji osoby odpowiedzialnej.
 
 ## Prywatność demonstracji
 
-Dane są przetwarzane lokalnie w przeglądarce. Odczyt pliku XLS/XLSX lub PDF pobiera bibliotekę techniczną z CDN, ale sam plik nie jest wysyłany do aplikacji ani zapisywany na serwerze.
+Dane są przetwarzane lokalnie w przeglądarce. Plik nie jest wysyłany do aplikacji ani zapisywany na serwerze.
 
 ## Testy
 
 ```bash
 npm test
 ```
-
-Testy sprawdzają parser CSV, normalizację, wykrywanie rozbieżności kwot, NIP-u i duplikatu oraz konwersję tekstu dokumentu do kontrolowanego rekordu.
-
-Folder `samples/` zawiera wyłącznie fikcyjne dane do ręcznej weryfikacji działania CSV oraz PDF.
-
-## Uruchomienie
-
-To statyczna aplikacja bez procesu instalacji. Otwórz `index.html` albo uruchom dowolny lokalny serwer HTTP w katalogu projektu.
