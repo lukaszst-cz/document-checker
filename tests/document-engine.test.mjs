@@ -23,3 +23,25 @@ test("tekst z PDF/oferty jest zamieniany w kontrolowany rekord", () => {
   assert.equal(checked.summary.errors, 0);
   assert.match(toCsv(checked.rows), /Transport Palet/);
 });
+
+
+test("CSV ze średnikiem jest obsługiwany", () => {
+  const rows = parseCsv("nazwa;ilość;netto;brutto\nSerwis;1;100;123");
+  const checked = checkRows(rows);
+  assert.equal(checked.rows[0].name, "Serwis");
+  assert.equal(checked.summary.errors, 0);
+});
+
+test("kontrola zgłasza błędny e-mail i datę", () => {
+  const rows = parseCsv(
+    "name,quantity,net,gross,vat,nip,date,email\nUsługa,1,100,123,23,5250000000,31-XX-2026,zly-adres"
+  );
+  const checked = checkRows(rows);
+  assert.ok(checked.issues.some((issue) => issue.field === "date"));
+  assert.ok(checked.issues.some((issue) => issue.field === "email"));
+});
+
+test("eksport CSV bezpiecznie podwaja cudzysłowy", () => {
+  const csv = toCsv([{ name: 'Usługa "Premium"', quantity: "1", net: "100", gross: "123", vat: "23", nip: "", date: "", email: "" }]);
+  assert.match(csv, /"Usługa ""Premium"""/);
+});
