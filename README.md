@@ -1,10 +1,14 @@
 # Document Checker
 
+[![Test](https://github.com/lukaszst-cz/document-checker/actions/workflows/test.yml/badge.svg)](https://github.com/lukaszst-cz/document-checker/actions/workflows/test.yml)
+
 **Problem:** przed wysłaniem oferty, zamówienia lub zestawienia łatwo pominąć NIP, datę, e-mail, pozycję albo rozbieżność kwot. Taki błąd kosztuje czas i obniża zaufanie klienta.
 
 **Rozwiązanie:** narzędzie do wstępnej kontroli danych z CSV, Excel i PDF przed wysłaniem.
 
 [Otwórz działające demo](https://document-checker-zm.pages.dev/)
+
+![Document Checker](assets/demo-xlsx.png)
 
 ## Co sprawdza
 
@@ -34,3 +38,11 @@ Dane są przetwarzane lokalnie w przeglądarce. Plik nie jest wysyłany do aplik
 ```bash
 npm test
 ```
+
+
+## Technicznie
+
+- statyczna aplikacja JavaScript działająca bez backendu;
+- pliki są analizowane lokalnie w przeglądarce;
+- logika kontroli danych jest wydzielona w `lib/document-engine.mjs`;
+- testy Node.js obejmują CSV, normalizację, kwoty, NIP, duplikaty oraz dane tekstowe z dokumentu.
