@@ -4,6 +4,13 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -34,3 +41,13 @@ jobs:
               print('Missing local files:', *missing, sep='\n- ')
               sys.exit(1)
           PY
+
+      - name: Check browser privacy contract
+        run: |
+          grep -Fq "Nie jest wysyłany na serwer" index.html
+          grep -Fq "cdn.jsdelivr.net/npm/xlsx@0.18.5" app.js
+          grep -Fq "cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38" app.js
+          if grep -E '\b(fetch|XMLHttpRequest|WebSocket)\s*\(' app.js lib/document-engine.mjs; then
+            echo "Unexpected data-network code found in browser demo."
+            exit 1
+          fi
