@@ -12,4 +12,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm test
+      - run: npm run check
+
+      - name: Check local assets
+        run: |
+          python - <<'PY'
+          import pathlib, re, sys
+          root = pathlib.Path('.')
+          html = (root / 'index.html').read_text(encoding='utf-8')
+          missing = []
+          for value in re.findall(r'(?:href|src)=["\']([^"\']+)["\']', html):
+              if value.startswith(('http://','https://','mailto:','tel:','#','data:')):
+                  continue
+              clean = value.split('#',1)[0].split('?',1)[0]
+              if clean and not (root / clean).exists():
+                  missing.append(clean)
+          for sample in ('samples/dane-testowe.csv','samples/dane-testowe.xlsx','samples/oferta-testowa.pdf'):
+              if not (root / sample).exists():
+                  missing.append(sample)
+          if missing:
+              print('Missing local files:', *missing, sep='\n- ')
+              sys.exit(1)
+          PY
