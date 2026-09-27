@@ -31,7 +31,7 @@ To narzędzie do kontroli operacyjnej. Nie zastępuje systemu księgowego, porad
 
 ## Prywatność demonstracji
 
-Dane są przetwarzane lokalnie w przeglądarce. Plik nie jest wysyłany do aplikacji ani zapisywany na serwerze.
+Dane z pliku są przetwarzane lokalnie w przeglądarce i nie są wysyłane do backendu aplikacji. Przy otwieraniu XLS/XLSX lub PDF przeglądarka pobiera z jsDelivr biblioteki potrzebne do odczytu formatu; zawartość dokumentu pozostaje po stronie przeglądarki.
 
 ## Testy
 
