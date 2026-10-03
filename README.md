@@ -46,3 +46,13 @@ npm test
 - pliki są analizowane lokalnie w przeglądarce;
 - logika kontroli danych jest wydzielona w `lib/document-engine.mjs`;
 - testy Node.js obejmują CSV, normalizację, kwoty, NIP, duplikaty oraz dane tekstowe z dokumentu.
+
+---
+
+## ☕ Wsparcie / Support
+
+Jeśli ten projekt Ci się podoba lub jest dla Ciebie przydatny, możesz dobrowolnie wesprzeć jego dalszy rozwój.  
+If you like this project or find it useful, you can support its further development.
+
+**[☕ Postaw Naleśnikowi++ kawę / Buy Me a Coffee](https://buymeacoffee.com/nalesnik_plus_plus)**
+
